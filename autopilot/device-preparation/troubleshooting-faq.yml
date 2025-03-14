@@ -28,7 +28,7 @@ sections:
     questions:
 
       - question: |
-          Device isn't being added to the device group specified in the Windows Autopilot device preparation policy.
+          Device is being added to the device group specified in the Windows Autopilot device preparation policy.
         answer: |
           - Verify that **Intune Provisioning Client** is set as the owner for the device group specified in the Windows Autopilot device preparation policy. For more information, [Create a device group](tutorial/user-driven/entra-join-device-group.md#create-a-device-group).
 
@@ -36,12 +36,12 @@ sections:
 
           - Verify that **Microsoft Entra roles can be assigned to the group** setting in the device group is set to **No**. For more information, see [Create a device group](tutorial/user-driven/entra-join-device-group.md#create-a-device-group).
 
-          - Verify that the admin creating the Autopilot device preparation policy has the **Enrollment time device membership assignment** RBAC permission. For more information, see [Required RBAC permissions](requirements.md?tabs=rbac#required-rbac-permissions).
+          - Verify that the admin creating the Autopilot device preparation policy has the permission. For more information, see (requirements)
 
       - question: |
           Windows Autopilot device preparation experience never launches during the out-of-box experience (OOBE).
         answer: |
-          - Verify that the minimum version of Windows is being used as documented in [Software requirements](requirements.md?tabs=software#software-requirements). This requirement includes that the minimum required update is installed before starting the device for the first time:
+          - Verify that the minimum version of Windows is being used as documented in [Software requirements](requirements-software#software-requirements). This requirement includes that the minimum required update is installed before starting the device for the first time:
 
             - Verify with OEMs that devices shipped from the OEM have the minimum required update installed.
 
@@ -56,15 +56,13 @@ sections:
 
             If a device needs to be removed as a Windows Autopilot device, see [Deregister a device](../registration-overview.md#deregister-a-device).
 
-          - Verify that the user signing into the device during OOBE is a member of the user group specified in the Windows Autopilot device preparation policy. For more information, see [Create a Windows Autopilot device preparation policy](tutorial/user-driven/entra-join-autopilot-policy.md#create-user-driven-microsoft-entra-join-windows-autopilot-device-preparation-policy) and [Create a user group](tutorial/user-driven/entra-join-user-group.md).
+          - Verify that the admin/owner signing into the device during OOBE is a member of the user group specified in the Windows Autopilot device preparation policy. For more information, see [Create a Windows Autopilot device preparation policy](user-driven/entra-join-autopilot-policy.md#create-user-driven-microsoft-entra-join-windows-autopilot-device-preparation-policy) and [Create a user group](tutorial/user-driven/entra-join-user-group)
 
-          - Verify that a device group is selected in the Windows Autopilot device preparation policy. A Windows Autopilot device preparation policy can be created without selecting a device group. For more information, see [Create a Windows Autopilot device preparation policy](tutorial/user-driven/entra-join-autopilot-policy.md#create-user-driven-microsoft-entra-join-windows-autopilot-device-preparation-policy) and [Create a device group](tutorial/user-driven/entra-join-device-group.md).
+          - Verify that a device group is selected in the Windows Autopilot device preparation policy. A Windows Autopilot device preparation policy can be created without selecting a device group. For more information, see [Create a Windows Autopilot device preparation policy](admin-driven/entra-join-autopilot-policy.md#create-user-driven-microsoft-entra-join-windows-autopilot-device-preparation-policy) and [Create a device group](admin-driven/entra-join-device-group.md).
 
-          - If using corporate identifiers in Intune, make sure that a corporate identifier is added for the device. For more information, see [Add Windows corporate identifiers](/mem/intune-service/enrollment/corporate-identifiers-add#add-windows-corporate-identifiers).
+          - If using corporate identifiers in Intune, make sure that a corporate identifier is added for the device. For more information, see [Add Windows corporate identifiers](/mem/intune-service/enrollment/corporate-identifiers-add#add-windows-corporate-identifiers.
 
-          - Verify that Windows automatic Intune enrollment is configured.
-
-          - Verify that users are allowed to join device to Microsoft Entra ID.
+          - Verify that users-admin are allowed to join device to Microsoft Entra ID.
 
       - question: |
           Applications or PowerShell scripts aren't getting installed.
